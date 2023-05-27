@@ -1,0 +1,165 @@
+// Config.tjs - ティラノスクリプト 設定
+// Copyright (C) 2012-2017 ShikemokuMK  
+
+;global.config_version = "4.50"; // この行を消さないでください
+
+//------------------------------------------------------- 全体の設定 -----
+;System.title = "圣夜回忆";
+;projectID = seiyamemo;
+;game_version = 0.0;
+
+;patch_apply_auto = true;
+
+;useCamera = true;
+//-------------------------------------------- ウィンドウや動作の設定 -----
+;ScreenRatio = fix;
+;ScreenCentering = true;
+
+;scWidth = 1366;
+;scHeight = 768;
+
+;chSpeed = 30; 
+;chSpeeds.fast = 10; // 「高速」文字表示スピード
+;chSpeeds.normal = 30; // 「普通」文字表示スピード
+;chSpeeds.slow = 50; // 「遅い」文字表示スピード
+
+;skipSpeed = 30;
+;skipEffectIgnore = true;
+
+;autoSpeed = 1300;
+;autoClickStop = true;
+;autoSpeedWithText = 60;
+
+// ◆ マウスカーソル
+;cursorDefault = default; // 通常のマウスカーソル 
+
+// ◆ デフォルトのサウンド・動画フォーマットを指定
+;mediaFormatDefault = ogg; 
+
+;defaultBgmVolume = 100;
+;defaultSeVolume = 100;
+;defaultMovieVolume = 100;
+
+;defaultBgmSlotNum = 1;
+;defaultSoundSlotNum = 3;
+
+// ◆ コンフィグ（メニュー）機能表示
+;configVisible = true;  //コンフィグアイコンを表示
+;configLeft    = -1     //コンフィグアイコンの左位置を指定できます。-1の場合は画面右下
+;configTop     = -1     //コンフィグアイコンの上位置を指定できます。-1の場合は画面右下
+
+// ◆ セーブの方式を指定
+;configSave     = webstorage
+;configThumbnail    = true;
+;configThumbnailQuality = middle ;
+;configSaveSlotNum = 5;
+
+// ◆ バックログ機能
+;maxBackLogNum = 50;
+
+// ◆ ラベル記録  
+;autoRecordLabel = false;
+
+// ◆ 既読管理
+;unReadTextSkip = false 　
+
+//既読のテキストの色(0x000000形式)を変更できます。default を指定すると既読テキストでも色は変わりません。
+;alreadyReadTextColor = 0x87cefa 
+
+// ◆ 初期状態の前景レイヤの数
+;numCharacterLayers = 3;
+
+// ◆ 前景レイヤの左右中心位置指定
+;scPositionX.left = 192;
+;scPositionX.left_center = 288;
+;scPositionX.center = 384;
+;scPositionX.right_center = 480;
+;scPositionX.right = 576;
+
+
+// 簡易な記号
+;scPositionX.l = scPositionX.left;
+;scPositionX.lc = scPositionX.left_center;
+;scPositionX.c = scPositionX.center;
+;scPositionX.rc = scPositionX.right_center;
+;scPositionX.r = scPositionX.right;
+
+
+// ◆ 初期状態のメッセージレイヤの数
+;numMessageLayers = 2;
+
+// ◆ 初期状態でメッセージレイヤを表示するかどうか
+;initialMessageLayerVisible = true;
+
+// ◆ 左右上下マージン
+;marginL = 8; // 左余白
+;marginT = 8; // 上余白
+;marginR = 8; // 右余白
+;marginB = 8; // 下余白
+
+
+// ◆ 初期位置
+;ml = 16;  // 左端位置
+;mt = 16;  // 上端位置
+;mw = 1366-32;   // 幅
+;mh = 768-32;   // 高さ
+
+
+// ◆ 「デバッグ」
+;debugMenu.visible = false;
+
+//-------------------------------------------- メッセージレイヤの設定 -----
+// ◆ メッセージレイヤの色と不透明度
+;frameColor = 0x000000; // position タグの color 属性に相当
+;frameOpacity = 128;  // position タグの opacity 属性に相当
+
+// ◆ 自動改行/改ページ
+;defaultAutoReturn = true; 
+
+// ◆ 右文字マージン （未実装）
+;marginRCh = 2;
+
+// ◆ 文字の大きさ
+;defaultFontSize = 24;  // deffont タグの size 属性に相当
+// ◆ 行間
+;defaultLineSpacing = 8; // defstyle タグの linespacing 属性に相当
+// ◆ 字間
+;defaultPitch = 2; // defstyle タグの pitch 属性に相当
+
+
+// ◆ 文字の書体
+;userFace = Microsoft JhengHei UI,Microsoft YaHei UI,メイリオ,sans-serif; // deffont タグの face 属性に相当
+
+// ◆ 文字の色
+;defaultChColor = 0xffffff;  // deffont タグの color 属性に相当
+
+// ◆ 文字をボールドにするか
+;defaultBold = false; // deffont タグの bold 属性に相当
+
+// ◆ ルビサイズ　（未実装）
+;defaultRubySize = 10; // deffont タグの rubysize に相当
+
+// ◆ ルビ の表示オフセット（未実装）
+;defaultRubyOffset = -2; // deffont タグの rubyoffset に相当
+
+// ◆ 文字のアンチエイリアス効果をするか（なめらかな文字表現）
+;defaultAntialiased = 1;
+
+// ◆ 影を描画するか
+;defaultShadow = true;  // deffont タグの shadow 属性に相当
+;defaultShadowColor = 0x000000;  // deffont タグの shadowcolor に属性に相当
+
+// ◆ 縁取りをするか
+;defaultEdge = false;  // deffont タグの edge 属性に相当
+;defaultEdgeColor = 0x000000;  // deffont タグの edgecolor に属性に相当
+
+// ◆ リンクの強調色 （未実装）
+;defaultLinkColor = 0x0080ff;  // link タグの color 属性に相当
+
+// ◆ リンクの不透明度　（未実装）
+;defaultLinkOpacity = 64;
+
+// ◆ 縦書きモード
+;vertical = false;
+
+//---------------------------------------------- メッセージ履歴の設定 -----
