@@ -1,6 +1,6 @@
 ;一番最初に呼び出されるファイル
 
-[title name="圣夜回忆"]
+[title name="朝着朝霞照映的街道进发"]
 
 [stop_keyconfig]
 
