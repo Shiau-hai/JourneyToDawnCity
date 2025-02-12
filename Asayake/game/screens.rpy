@@ -369,16 +369,16 @@ screen main_menu():
             text "[config.version]":
                 style "main_menu_version"
 
-            ## 这里定义的是标题画面背景和主菜单的淡入动画
-            init:
-                transform bg_fade_in:
-                    alpha 0.0
-                    linear 1.5 alpha 1.0  # 1.5 秒背景淡入
+## 这里定义的是标题画面背景和主菜单的淡入动画
+init:
+    transform bg_fade_in:
+        alpha 0.0
+        linear 1.5 alpha 1.0  # 1.5 秒背景淡入
 
-                transform menu_fade_in:
-                    alpha 0.0
-                    pause 1.5  # 背景完全显示后再淡入菜单
-                    linear 1.0 alpha 1.0
+    transform menu_fade_in:
+        alpha 0.0
+        pause 1.5  # 背景完全显示后再淡入菜单
+        linear 1.0 alpha 1.0
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/start.rpy", line 65: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    show screen next_chapter_button
-    ^
+File "game/screens.rpy", line 373: 'init' is not a keyword argument or valid child of the vbox statement.
+    init:
+        ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Tue Feb 11 22:34:55 2025
+Wed Feb 12 00:32:17 2025

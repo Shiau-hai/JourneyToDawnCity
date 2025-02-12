@@ -1,0 +1,24 @@
+{
+    "expansion": false,
+    "google_play_key": null,
+    "google_play_salt": null,
+    "heap_size": "3",
+    "icon_name": "Asayake",
+    "include_pil": false,
+    "include_sqlite": false,
+    "layout": null,
+    "name": "\u671d\u7740\u671d\u971e\u7167\u6620\u7684\u8857\u9053\u8fdb\u53d1",
+    "numeric_version": 1,
+    "orientation": "sensorLandscape",
+    "package": "com.asayake.game",
+    "permissions": [
+        "VIBRATE",
+        "INTERNET"
+    ],
+    "source": false,
+    "store": "none",
+    "update_always": true,
+    "update_icons": true,
+    "update_keystores": true,
+    "version": "1.0"
+}
