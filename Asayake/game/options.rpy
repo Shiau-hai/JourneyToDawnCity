@@ -26,8 +26,19 @@ define config.version = "1.0"
 ## 放置在游戏“关于”屏幕的文本。将文本放在三个引号之间，并在段落之间留一个空行。
 
 define gui.about = _p("""
+鸣谢
+
+1. 声音素材
+音频来源: OtoLogic (https://otologic.jp/)
+素材遵循 CC BY 4.0 许可证。
+
+音频来源: 小森 平(https://taira-komori.jpn.org/)
+根据作者声明，该素材可用于商业及非商业项目，无需署名。
+
+2. 其他
 谢谢咕政委孜孜不倦的催更.没有你这个游戏问世不了./salute
 
+以及，购买这款游戏的你。
 """)
 
 

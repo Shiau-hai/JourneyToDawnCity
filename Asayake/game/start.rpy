@@ -15,6 +15,12 @@ init:
         linear 1.0 alpha 0.2  # 1秒内淡出
         repeat  # 无限循环
 
+    transform fade_centered:
+        xalign 0.5
+        yalign 0.5
+        alpha 0.0
+        linear 1.5 alpha 1.0  # 1.5 秒淡入
+        
 define narrator_nvl = Character(None, kind=nvl)
 define narrator_adv = Character(None, kind=adv)
 define config.voice_filename_format = "audio/{filename}"
@@ -77,5 +83,7 @@ narrator_nvl "现在，就让我——"
 
 show screen next_chapter_button
 pause  # 让玩家可以点击按钮或按任意键继续
+
+jump chapter1
 
 return

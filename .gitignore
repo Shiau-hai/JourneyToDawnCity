@@ -1,6 +1,19 @@
 #日志文件
 errors.txt
 log.txt
+traceback.txt
+
+# 字体
+*.ttf
+
+# 编译好的文件
+*.rpyc
+*.rpyb
+*.rpymc
+
+
+# apk
+*.apk
 
 #画像
 *.img
@@ -27,3 +40,4 @@ log.txt
 
 # 存档
 saves/
+Asayake-1.0-dists/
