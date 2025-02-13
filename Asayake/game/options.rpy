@@ -35,6 +35,8 @@ define gui.about = _p("""
 音频来源: 小森 平(https://taira-komori.jpn.org/)
 根据作者声明，该素材可用于商业及非商业项目，无需署名。
 
+音频来源: 「フリーBGM発掘サイト〜殿の貴重な宝物庫〜」(https://bgm.taiyakiojisan.com)
+
 2. 其他
 谢谢咕政委孜孜不倦的催更.没有你这个游戏问世不了./salute
 
