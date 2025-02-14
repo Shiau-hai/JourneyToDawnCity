@@ -1,3 +1,26 @@
+screen next_chapter2_button():
+    vbox:
+        xalign 0.5
+        yalign 0.9  # 按钮位置调整到屏幕下方
+        textbutton "深呼吸，你准备好回归现实。":
+            text_size 60  # 调整字体大小
+            text_color "#FFFFFF"  # 文字颜色
+            action Return()  # 按钮点击后继续游戏
+            at breathing_animation  # 应用呼吸闪烁动画
+
+init:
+    transform breathing_animation:
+        alpha 0.2  # 开始时透明度降低
+        linear 1.0 alpha 1.0  # 1秒内淡入
+        linear 1.0 alpha 0.2  # 1秒内淡出
+        repeat  # 无限循环
+
+    transform fade_centered:
+        xalign 0.5
+        yalign 0.5
+        alpha 0.0
+        linear 1.5 alpha 1.0  # 1.5 秒淡入
+
 define role1 = Character('我', color="#c8c8ff", image="role1")
 define role2 = Character('“她”', color="#c8c8ff", image="role2")
 define narrator_nvl = Character(None, kind=nvl)
@@ -302,5 +325,8 @@ narrator_nvl "打开蜂窝数据收到一堆工作上的邮件和数据之后，
 narrator_nvl "我大概是强行杀死了体内的某种东西，"
 narrator_nvl "或者说至少让它睡去了。"
 narrator_nvl "于是一头扎进工作，不再犹豫。"
-
+show screen next_chapter2_button
+pause  # 让玩家可以点击按钮或按任意键继续
+hide screen time_display
+jump chapter3
 return
