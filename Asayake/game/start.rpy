@@ -26,6 +26,7 @@ define narrator_adv = Character(None, kind=adv)
 define config.voice_filename_format = "audio/{filename}"
 
 label start:
+
 scene bg01 with fade
 
 narrator_nvl "这是一部关于孤独的小说。"

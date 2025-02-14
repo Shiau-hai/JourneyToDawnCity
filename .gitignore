@@ -20,13 +20,13 @@ traceback.txt
 *.jpg
 *.png
 *.gif
-
+images/
 #音声
 *.ogg
 *.mp3
 *.wav
 *.m4a
-
+audio/
 #DBダンプ
 *.db
 

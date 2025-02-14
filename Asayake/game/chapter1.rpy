@@ -32,7 +32,6 @@ define narrator_adv = Character(None, kind=adv)
 define config.voice_filename_format = "audio/{filename}"
 
 label chapter1:
-
 # 停止所有 BGM 和音效
 stop music fadeout 2.0
 stop sound
@@ -41,6 +40,7 @@ hide screen next_chapter_button
 nvl clear
 ## 隐藏对话框，确保文字居中独立显示
 window hide
+
 scene black
 ## 居中大字显示“2021年，10月”，淡入
 show text "2021年，10月" at fade_centered with fade
@@ -53,7 +53,8 @@ window show
 
 play music "audio/bgm_blues.mp3"
 scene bg02 with fade
-
+$ current_date = "2021年 10月 15日"
+show screen time_display
 narrator_nvl "这里是惠比寿，但凡年轻潮人名流之士都向往的地方。"
 narrator_nvl "离日剧里面频频登场的一到春天盛开的樱花会把一条河都染成樱花色的目黑川也就稍微走走路的样子。"
 narrator_nvl "这么潮的地方怎么都跟我搭不上吧？"
@@ -123,6 +124,7 @@ narrator_nvl "摸出手机，才8点，晚上才刚刚开始呢。"
 narrator_nvl "这之后我摇摇晃晃地掏出交通卡过了剪票口，上了月台，等车来了以后，勉强找到位子坐下。"
 nvl clear
 scene bg05 with fade
+play sound "audio/element_train.ogg" loop
 narrator_nvl "当我在电车的暖气全开的座位上蜷缩到一个刚刚好的姿势，并在酒精的作用下昏昏欲睡时，手机忽然震动了一下。"
 narrator_nvl "一般来说这时候我大概会犹豫一下要不要确认是什么通知，"
 narrator_nvl "但这一次有些不一样。"
@@ -197,8 +199,9 @@ narrator_nvl "我甩了甩头，试图让自己回过神来。"
 narrator_nvl "我拿出手机下意识看了看时间，现在是2021年，我已经在日本了。"
 narrator_nvl "刚刚那个声音来自过去。但很熟悉。我试图追溯这股熟悉的声音。"
 narrator_nvl "电车驶入隧道，透过车窗玻璃，我看着反光里的自己喝醉后的样子，有些不堪的记忆涌上心头。"
+
 show screen next_chapter1_button
 pause  # 让玩家可以点击按钮或按任意键继续
-
+hide screen time_display
 jump chapter2
 return

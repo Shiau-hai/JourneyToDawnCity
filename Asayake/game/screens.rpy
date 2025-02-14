@@ -1395,6 +1395,22 @@ style nvl_button:
 style nvl_button_text:
     properties gui.button_text_properties("nvl_button")
 
+## 时间指示器屏幕 #####################################################################
+##
+## 这个屏幕负责显示当前故事所处的时间线。
+## 由于故事会在不同的时间点来回穿梭，为避免玩家产生混乱，设置了这个指示器。
+##
+screen time_display():
+    
+    
+        frame:
+            xalign 0.02
+            yalign 0.02
+            background Frame("gui/frame.png", 10, 10)
+            padding (10, 5)
+
+            vbox:
+                text "[current_date]" size 28 color "#FFFFFF" bold True
 
 
 ################################################################################

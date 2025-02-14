@@ -37,6 +37,7 @@ define gui.about = _p("""
 
 音频来源: 「フリーBGM発掘サイト〜殿の貴重な宝物庫〜」(https://bgm.taiyakiojisan.com)
 
+音频来源: 効果音ラボ(https://soundeffect-lab.info/)
 2. 其他
 谢谢咕政委孜孜不倦的催更.没有你这个游戏问世不了./salute
 
