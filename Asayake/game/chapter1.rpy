@@ -1,25 +1,26 @@
 screen next_chapter1_button():
     vbox:
         xalign 0.5
-        yalign 0.9  # 按钮位置调整到屏幕下方
+        yalign 0.9
+        ## 闪烁文本内容
         textbutton "按任意键，进入记忆漩涡的中心。":
-            text_size 60  # 调整字体大小
-            text_color "#FFFFFF"  # 文字颜色
-            action Return()  # 按钮点击后继续游戏
-            at breathing_animation  # 应用呼吸闪烁动画
+            text_size 60
+            text_color "#FFFFFF"
+            action Return()
+            at breathing_animation
 
 init:
     transform breathing_animation:
-        alpha 0.2  # 开始时透明度降低
-        linear 1.0 alpha 1.0  # 1秒内淡入
-        linear 1.0 alpha 0.2  # 1秒内淡出
-        repeat  # 无限循环
+        alpha 0.2
+        linear 1.0 alpha 1.0
+        linear 1.0 alpha 0.2
+        repeat
 
     transform fade_centered:
         xalign 0.5
         yalign 0.5
         alpha 0.0
-        linear 1.5 alpha 1.0  # 1.5 秒淡入
+        linear 1.5 alpha 1.0
 
 define role1 = Character('众人', color="#c8c8ff", image="role1")
 define role2 = Character('新人', color="#c8c8ff", image="role2")
@@ -32,37 +33,49 @@ define narrator_adv = Character(None, kind=adv)
 define config.voice_filename_format = "audio/{filename}"
 
 label chapter1:
-# 停止所有 BGM 和音效
-stop music fadeout 2.0
-stop sound
-
+## 章节初始化处理
 hide screen next_chapter_button
+scene black
 nvl clear
-## 隐藏对话框，确保文字居中独立显示
 window hide
 
-scene black
-## 居中大字显示“2021年，10月”，淡入
-show text "2021年，10月" at fade_centered with fade
-pause 3.0  # 显示 3 秒
-## 淡出文本
-hide text with fade
-pause 2.0  # 黑屏等待 2 秒
-## 清屏后恢复对话框，继续叙述
-window show
+## 音效控制
+stop music fadeout 2.0
+stop sound
+stop audio
+$ renpy.pause(0.1, hard=True)
 
+
+
+## 时间指示器相关处理
+show text "2021年，10月" at fade_centered with fade
+pause 3.0
+hide text with fade
+pause 2.0
+
+## 显示窗口
 play music "audio/bgm_blues.mp3"
 scene bg02 with fade
-$ current_date = "2021年 10月 15日"
+pause 2.0
+
+$ current_date = "2021年 10月 17日"
 show screen time_display
+window show
+
 narrator_nvl "这里是惠比寿，但凡年轻潮人名流之士都向往的地方。"
 narrator_nvl "离日剧里面频频登场的一到春天盛开的樱花会把一条河都染成樱花色的目黑川也就稍微走走路的样子。"
 narrator_nvl "这么潮的地方怎么都跟我搭不上吧？"
 narrator_nvl "心里虽然这么想着，一时冲动答应同期的T君的相亲party，到头来还是来了啊。"
 narrator_nvl "还能怎么办，现在再想打退堂鼓也来不及了吧。"
 nvl clear
+
+## 更换场景：酒吧
+window hide
 scene bg03 with fade
-play sound "audio/sound_party.mp3" loop
+play audio "audio/element_party.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "相亲的会场在某个行家之间评分颇高颇有气氛的，喝啤酒的露天音乐吧。"
 narrator_nvl "不知名的上头的外国音乐，各种各样的客人，嘈杂的谈笑声——"
 narrator_nvl "虽然还没开始喝，我竟有些酩酊的感觉。"
@@ -102,8 +115,19 @@ nvl clear
 narrator_nvl "对方马上犹如“你这孙子终于开窍了”般醒悟过来，这天总算没有聊死。"
 narrator_nvl "然后，我们就“甲方到底是不是傻逼”进行了15分钟愉快而没有建设性的交流。"
 nvl clear
-scene bg04 with fade
+
+# 音效控制
 stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：散场
+window hide
+play audio "audio/element_townnight.mp3" loop
+scene bg04 with fade
+pause 2.0
+window show
+
 narrator_nvl "之后，轮换了几次座位，跟所有人都交换了联系方式，便到了一次会解散的时间。"
 narrator_nvl "虽然T君礼节性地挽留了一下我，但我很识趣地找了个非常随便的理由开溜了。"
 narrator_nvl "反正都二次会了就算只剩他们5个，按T君和那个超级精英证券公司营业新人君那个派对动物的特质来看，也能玩得很尽兴的吧。"
@@ -113,37 +137,65 @@ play sound "audio/sound_nomikomu.mp3"
 narrator_nvl "我把相亲这个设定完全抛到脑后，只管把店里的精酿啤酒各个牌子都喝了个遍。"
 play sound "audio/sound_heartbeats.mp3"
 narrator_nvl "这时候，不用照镜子摸自己的胸口量心跳都能猜到我脸已经红成猴子屁股了。"
+play sound "audio/sound_walk.mp3"
+narrator_nvl "我听着自己粗粗的呼吸声朝电车站走去。"
 stop sound
 nvl clear
+
+## 更换场景：自动贩卖机
+window hide
 scene bg09 with fade
 play sound "audio/sound_jihanki.mp3"
-narrator_nvl "我听着自己粗粗的呼吸声朝电车站走去，路上路过了一个不知道什么自动贩卖机，买了瓶宝矿力，"
+pause 3.0
+window show
+
 play sound "audio/sound_nomikomu.mp3"
-narrator_nvl "吨吨吨了几口."
-narrator_nvl "摸出手机，才8点，晚上才刚刚开始呢。"
+narrator_nvl "路上，路过了一个不知道什么自动贩卖机，买了瓶宝矿力，吨吨吨了几口"
+narrator_nvl "摸出手机，才8点不到，晚上才刚刚开始呢。"
 narrator_nvl "这之后我摇摇晃晃地掏出交通卡过了剪票口，上了月台，等车来了以后，勉强找到位子坐下。"
 nvl clear
+
+# 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：电车
+window hide
 scene bg05 with fade
-play sound "audio/element_train.ogg" loop
+play audio "audio/element_train.ogg" loop
+pause 2.0
+window show
+
 narrator_nvl "当我在电车的暖气全开的座位上蜷缩到一个刚刚好的姿势，并在酒精的作用下昏昏欲睡时，手机忽然震动了一下。"
 narrator_nvl "一般来说这时候我大概会犹豫一下要不要确认是什么通知，"
 narrator_nvl "但这一次有些不一样。"
+play sound "audio/sound_bubu.mp3"
 narrator_nvl "因为，正当我犹豫的时候，马上就接二连三地发来了第二条第三条。"
 nvl clear
+stop sound
 narrator_nvl "我只好睁开睡眼点开，发现是LINE的新消息通知。心想——"
 narrator_nvl "不是吧？二次会都没结束就开始给刚交换联络方式的相亲对象发消息，"
 narrator_nvl "现在的相亲party这么卷的吗？"
 narrator_nvl "然后点开LINE，果然是刚才三个女生中的其中一个。我回忆了一下，是个短发妹子。"
+play sound "audio/sound_popup.wav"
 role5 "“二次会好无聊~”"
+play sound "audio/sound_popup.wav"
 role5 "“可以去你家吗？”"
+play sound "audio/sound_popup.wav"
 role5 "“我们再喝过吧~”"
+play sound "audio/sound_popup.wav"
 role5 "“[[一张集体照片，二次会的卡拉OK包厢和各种艺术字]”"
 nvl clear
 narrator_nvl "要是一般人看到这种来势汹汹的妹子的话估计就怂了，但我刚好已经脱离了一般人的范畴，再加上酒精的驱使，我给她回复了。"
+play sound "audio/sound_typing.mp3"
 role3 "“喂喂，这才二次会吧？”"
+play sound "audio/sound_typing.mp3"
 role3 "“自己答应留下来还说无聊什么的，对一起去的人有些不礼貌哟”"
+play sound "audio/sound_typing.mp3"
 role3 "“我家？我家啥也没有啊，xx桑来了大概也会感到无聊，这样也没问题吗？”"
 nvl clear
+stop sound
 narrator_nvl "发完这些字以后我便锁上屏幕往座位后靠了靠，"
 narrator_nvl "电车的玻璃忠实地传递着铁轨上细微的颠簸，"
 narrator_nvl "我想我这时候真的是醉了。"
@@ -154,12 +206,18 @@ narrator_nvl "倒也没有通过这次相亲达成什么的意思。"
 narrator_nvl "虽说吧，我单身一事属实，"
 narrator_nvl "但要论及改变现状，我其实是没有准备的。"
 nvl clear
+play sound "audio/sound_bubu.mp3"
 narrator_nvl "（手机震动声，连续震动声）"
 narrator_nvl "回过神来，解锁手机，刚才那个妹子发来了信息。"
+stop sound
+play sound "audio/sound_popup.wav"
 role5 "“不会哦，有啤酒和薯条就好了”"
+play sound "audio/sound_popup.wav"
 role5 "“比起这个，最近的车站在哪里？”"
+play sound "audio/sound_popup.wav"
 role5 "“（表情包，wakuwaku）”"
 nvl clear
+stop sound
 narrator_nvl "我以为妹子是喝醉了所以说玩笑话的。却不曾想妹子好像真的有来的意思。"
 narrator_nvl "怎么办？回绝吗？"
 narrator_nvl "我关上手机抬头，把视线投向上方的电车车厢广告。"
@@ -174,7 +232,9 @@ narrator_nvl "似醉犹醒，"
 narrator_nvl "反而难过。"
 narrator_nvl "对影小酌虽无不可，有美人与我对饮则更是美妙，"
 narrator_nvl "于是我非常轻而易举地输给了自己的冲动，决心给她回消息。"
+play sound "audio/sound_typing.mp3"
 role3 "“JR新小岩”"
+play sound "audio/sound_typing.mp3"
 role3 "“我去剪票口接你吧，这边剪票口只有一个，还挺好找的。”"
 nvl clear
 narrator_nvl "发完这条消息后，锁上手机，我把视线投向列车窗户外面。"
@@ -184,9 +244,13 @@ narrator_nvl "脑海中不断重复着某个人的声音，我试图去听清。
 role6 "“你……以冷……一下？”"
 nvl clear
 narrator_nvl "什么？"
-# 停止所有 BGM 和音效
+
+# 音效控制
 stop music fadeout 2.0
 stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
 play music "audio/bgm_bocchi.mp3"
 role6 "“……就算了吧。像个电子宠物”"
 nvl clear
@@ -200,8 +264,9 @@ narrator_nvl "我拿出手机下意识看了看时间，现在是2021年，我�
 narrator_nvl "刚刚那个声音来自过去。但很熟悉。我试图追溯这股熟悉的声音。"
 narrator_nvl "电车驶入隧道，透过车窗玻璃，我看着反光里的自己喝醉后的样子，有些不堪的记忆涌上心头。"
 
+# 章节切换处理
 show screen next_chapter1_button
-pause  # 让玩家可以点击按钮或按任意键继续
+pause
 hide screen time_display
 jump chapter2
 return

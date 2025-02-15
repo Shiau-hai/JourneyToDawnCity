@@ -1,42 +1,80 @@
-define role1 = Character('广播', color="#c8c8ff", image="role1")
-define role2 = Character('“xx桑”', color="#c8c8ff", image="role2")
-define role3 = Character('我', color="#c8c8ff", image="role3")
+define c3role1 = Character('广播', color="#c8c8ff", image="c3role1")
+define c3role2 = Character('“xx桑”', color="#c8c8ff", image="c3role2")
+define c3role3 = Character('我', color="#c8c8ff", image="c3role3")
 define narrator_nvl = Character(None, kind=nvl)
 define narrator_adv = Character(None, kind=adv)
 define config.voice_filename_format = "audio/{filename}"
 
 label chapter3:
-hide screen next_chapter2_button
-nvl clear
-## 隐藏对话框，确保文字居中独立显示
-window hide
+## 章节初始化处理
 scene black
-## 居中大字显示“2021年，如今”，淡入
-show text "2021年，如今" at fade_centered with fade
-pause 3.0  # 显示 3 秒
-## 淡出文本
+nvl clear
+window hide
+stop sound
+hide screen next_chapter2_button
+
+## 时间指示器相关处理
+show text "22021年，如今" at fade_centered with fade
+pause 3.0
 hide text with fade
-pause 2.0  # 黑屏等待 2 秒
-## 清屏后恢复对话框，继续叙述
+pause 2.0
+
+## 显示窗口
+play music "audio/bgm_blues.mp3"
+play sound "audio/sound_shinkoiwa.ogg"
+scene bg05 with fade
+pause 2.0
+
+$ current_date = "2021年 10月 17日"
+show screen time_display
 window show
 
-scene bg05 with fade
-play sound "audio/element_summer.ogg" loop
-$ current_date = "2021年 10月 15日"
-show screen time_display
-role1 "“下一站，新小岩，新小岩，出口在右侧。”"
+c3role1 "“下一站，新小岩，新小岩，出口在右侧。”"
 nvl clear
 narrator_nvl "电车的报站将意识拉回现实，"
 narrator_nvl "我看了看表，现在是晚上8点。"
 narrator_nvl "头似乎没有刚刚那么沉了，我站起身把双肩包背在身上走到车门附近，"
 nvl clear
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：新小岩月台
+window hide
 scene bg10 with fade
+pause 2.0
+window show
+
 narrator_nvl "下车后，总之出了剪票口之后来到了新小岩的南口。"
+nvl clear
+
+## 更换场景：新小岩月台
+window hide
+scene bg37 with fade
+play audio "audio/element_kaisatu.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "我避让着行人找到一个不会阻碍到行人的柱子边上，"
 narrator_nvl "靠墙掏出手机，点亮屏幕。"
 narrator_nvl "并没有新的消息。"
 narrator_nvl "百无聊赖的我四下张望。"
 nvl clear
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：新小岩月台
+window hide
+scene bg39 with fade
+play audio "audio/element_ekimae.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "周日的8点，虽然说第二天还有工作，但时间还早，车站前依然人来人往非常热闹。"
 narrator_nvl "有拿着吉他对着麦克风支架弹唱旁边还有坐着卡风在鼓点给节奏的街头艺人，"
 narrator_nvl "举着手机录像的看起来是粉丝的几个女性。"
@@ -48,10 +86,32 @@ narrator_nvl "我觉得再这样等下去估计我会困到直接睡死在路边
 narrator_nvl "也算是为了醒酒，转身去车站商店买了一瓶解酒用的生姜萃取物安慰剂灌下，"
 narrator_nvl "拿着上车前买的那瓶运动饮料，从北口出来朝新小岩公园走去。"
 nvl clear
+
+## 更换场景：新小岩月台
+window hide
+scene bg27 with fade
+play audio "audio/element_autumn.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "在公园入口的厕所解决了自然的召唤之后，走在没有路灯漆黑一片公园的林荫道上，"
 narrator_nvl "偶尔有遛狗和夜跑的路人经过，手环和狗的颈链上的led灯非常显眼。"
-narrator_nvl "也就几十来步路，走到了藏前桥大道边上一个电话亭旁边。"
 nvl clear
+
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：电话亭
+window hide
+scene bg06 with fade
+play audio "audio/element_roadside.ogg" loop
+pause 2.0
+window show
+
+narrator_nvl "也就几十来步路，走到了藏前桥大道边上一个电话亭旁边。"
 narrator_nvl "我脑海里浮现出一组数字，是她的手机号码。"
 narrator_nvl "我当然知道是她的手机号码，"
 narrator_nvl "可是，此情此景让我想起这种无关紧要的东西到底什么意思啊？"
@@ -102,83 +162,156 @@ nvl clear
 narrator_nvl "我情不自禁嘴角上扬了。"
 narrator_nvl "但我明白，我还没醉到那种地步，今晚我还没有到位。"
 nvl clear
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：新小岩月台
+window hide
+scene bg28 with fade
+play audio "audio/element_autumn.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "从电话亭出来，走到棒球场外围的板凳上坐下。"
 narrator_nvl "外面的凉风让我稍微清醒了一些，"
 narrator_nvl "我喝了一口运动饮料，把手插在上衣的兜里，稍微发了会儿呆。"
+play sound "audio/sound_bubu.mp3"
 narrator_nvl "这时候手机又震了几下。"
 nvl clear
-role2 "“快到了！”"
-role2 "“现在龟户！”"
+play sound "audio/sound_popup.wav"
+c3role2 "“快到了！”"
+play sound "audio/sound_popup.wav"
+c3role2 "“现在龟户！”"
 nvl clear
 narrator_nvl "让人久等可不好，"
+play sound "audio/sound_walk.mp3"
 narrator_nvl "我于是朝车站稍微加快脚步走去。"
+nvl clear
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：新小岩改札
+window hide
+scene bg37 with fade
+play audio "audio/element_kaisatu.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "在我回到剪票口外几乎同时，"
 narrator_nvl "我感到背后被人拍了一下。"
 narrator_nvl "转身，是她。"
 nvl clear
-role2 "“哟！”"
-role3 "“哦哦哦是你啊，吓我一跳”"
+c3role2 "“哟！”"
+c3role3 "“哦哦哦是你啊，吓我一跳”"
 narrator_nvl "还不等我反应过来，手里的运动饮料被她抢了过去，"
+play sound "audio/sound_nomikomu.mp3"
 narrator_nvl "她拧开瓶盖后抿了一口，好像很难喝似的皱着眉吐着舌头还给我。"
 nvl clear
-role3 "“等等，这，”"
-role2 "“好难喝~咦？这并不是酒嘛！”"
-role3 "“不是啊，”"
-role2 "“那是什么？”"
-role3 "“就，运动饮料啊？”"
-role2 "“为什么喝那种东西啊，"
-role2 "比起那个，"
-role2 "我们去买酒吧！"
-role2 "然后就去晓君的家里，"
-role2 "{rb}在家喝酒！{/rb}{rt}TAKUNOMI{/rt}"
-role2 "嘻嘻嘻~”"
+c3role3 "“等等，这，”"
+c3role2 "“好难喝~咦？这并不是酒嘛！”"
+c3role3 "“不是啊，”"
+c3role2 "“那是什么？”"
+c3role3 "“就，运动饮料啊？”"
+c3role2 "“为什么喝那种东西啊，"
+c3role2 "比起那个，"
+c3role2 "我们去买酒吧！"
+c3role2 "然后就去晓君的家里，"
+c3role2 "{rb}在家喝酒！{/rb}{rt}TAKUNOMI{/rt}"
+c3role2 "嘻嘻嘻~”"
 nvl clear
 narrator_nvl "她的样子看起来绝对是喝高了那种兴奋，"
 narrator_nvl "因此声音也几乎是完全不在乎周围的那种，"
 narrator_nvl "我仅剩的理智不想引起太多注目，"
 narrator_nvl "于是决定还是把她稳住。"
-role3 "“好好好走走走。”"
+c3role3 "“好好好走走走。”"
+play sound "audio/sound_walk.mp3"
 nvl clear
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：新小岩月台
+window hide
+scene bg07 with fade
+play audio "audio/element_konbini.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "于是在十字路口边上的罗森我们进去准备买些酒菜。"
 narrator_nvl "她进去以后径直朝酒类冰柜走去拿了好几罐度数很高的烧酒，"
 narrator_nvl "其他的看都没看，"
 narrator_nvl "找到正在买下酒菜的我，把酒全部放进我手里的购物篮，"
 narrator_nvl "然后笑眯眯地看着我。"
-role2 "“不可以哦，才喝这么一点，再喝点嘛”"
+c3role2 "“不可以哦，才喝这么一点，再喝点嘛”"
 nvl clear
 narrator_nvl "我苦笑，"
 narrator_nvl "我不知道眼前这个醉美人到底酒量几何，"
 narrator_nvl "但我肯定她这么说的时候"
 narrator_nvl "她今晚肯定不会轻易放过我的。"
-role3 "“那，我跟你分吧，"
-role3 "你喝多少我陪你喝多少，"
-role3 "要是喝完的话我家对面就是卖酒的自贩机，"
-role3 "陪你尽兴为止”"
+c3role3 "“那，我跟你分吧，"
+c3role3 "你喝多少我陪你喝多少，"
+c3role3 "要是喝完的话我家对面就是卖酒的自贩机，"
+c3role3 "陪你尽兴为止”"
 nvl clear
 narrator_nvl "她高兴地挽住我的手臂"
-role2 "“这才像话，嘻嘻”"
+c3role2 "“这才像话，嘻嘻”"
 nvl clear
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+
+## 更换场景：新小岩月台
+window hide
+scene bg36 with fade
+play audio "audio/element_walk_jutaku_night.mp3" loop
+pause 2.0
+window show
+
 narrator_nvl "我有些难为情，"
 narrator_nvl "虽然我很明白，我这是在占她便宜，"
 narrator_nvl "占一个喝醉了的美女的便宜，"
 narrator_nvl "但意外地感觉不坏，"
+
+## 更换场景：新小岩月台
+window hide
+scene bg40 with fade
+pause 2.0
+window show
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(1.0, hard=True)
+nvl clear
 narrator_nvl "于是就这样保持这个姿势一直到家。"
 narrator_nvl "我掏出钥匙打开门。打开灯。"
-role3 "“我回来了”"
-role2 "“打扰啦”"
+c3role3 "“我回来了”"
+c3role2 "“打扰啦”"
 nvl clear
 narrator_nvl "我自己一个人回来的时候从来不说，"
 narrator_nvl "今天有其他人在的时候不说感觉有点怪，于是说了。"
+play sound "audio/sound_shoes.mp3"
 narrator_nvl "我从鞋柜里找出一双拖鞋给她。"
-role2 "“谢谢，嘿嘿~”"
+c3role2 "“谢谢，嘿嘿~”"
 nvl clear
 narrator_nvl "她看起来还是很开心。"
 narrator_nvl "我把购物袋放到暖桌上，把墙角灯打开，"
 narrator_nvl "恰到好处的暖光包围了暖桌的周围。"
 narrator_nvl "把一切安排妥当之后，招呼她在暖桌边坐下。"
-role3 "“不好意思，"
-role3 "男人的破狗窝是这个样子，"
-role3 "你随意就好不用太拘……嗯呣……！！？”"
+c3role3 "“不好意思，"
+c3role3 "男人的破狗窝是这个样子，"
+c3role3 "你随意就好不用太拘……嗯呣……！！？”"
+play sound "audio/sound_kiss.mp3"
 nvl clear
 narrator_nvl "嘴唇上两片柔软的感触传了过来，"
 narrator_nvl "随之而来就是一股带着烧酒和香水味的浓烈气息。"
@@ -186,18 +319,27 @@ narrator_nvl "我还没反应过来怎么回事，"
 narrator_nvl "但我似乎又有些理解了这一切。"
 narrator_nvl "我似乎想说些什么，嘴唇却被她用手指按下。"
 nvl clear
-role2 "“现在你要是吐出一个字，我马上回去。”"
+c3role2 "“现在你要是吐出一个字，我马上回去。”"
 narrator_nvl "我被她震住了，"
 narrator_nvl "然后她再一次凑近，"
 narrator_nvl "额头贴到我的额头上，额头传递着她的体温，"
 narrator_nvl "我感受到我们的呼吸渐渐加快。"
+play sound "audio/sound_kiss.mp3"
 narrator_nvl "然后好像是同时，我们再次温柔地接吻，"
+nvl clear
 narrator_nvl "片刻后。稍微分开。"
 narrator_nvl "暖色的灯光下的她这时却有些害羞了起来，"
 narrator_nvl "我忍不住笑场了，她看到我笑了也忍不住笑了。"
 narrator_nvl "然后一拳捶到我胸口上，那可是实打实的一拳啊。"
+
+## 更换场景：和室
+window hide
+scene bg38 with fade
+pause 2.0
+window show
+
 nvl clear
-role2 "“呐，去床上吧。”"
-role3 "“嗯”"
+c3role2 "“呐，去床上吧。”"
+c3role3 "“嗯”"
 
 return

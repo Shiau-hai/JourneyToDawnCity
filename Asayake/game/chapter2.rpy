@@ -1,91 +1,109 @@
 screen next_chapter2_button():
     vbox:
         xalign 0.5
-        yalign 0.9  # 按钮位置调整到屏幕下方
+        yalign 0.9
+        ## 闪烁文本内容
         textbutton "深呼吸，你准备好回归现实。":
-            text_size 60  # 调整字体大小
-            text_color "#FFFFFF"  # 文字颜色
-            action Return()  # 按钮点击后继续游戏
-            at breathing_animation  # 应用呼吸闪烁动画
+            text_size 60
+            text_color "#FFFFFF"
+            action Return()
+            at breathing_animation
 
 init:
     transform breathing_animation:
-        alpha 0.2  # 开始时透明度降低
-        linear 1.0 alpha 1.0  # 1秒内淡入
-        linear 1.0 alpha 0.2  # 1秒内淡出
-        repeat  # 无限循环
+        alpha 0.2
+        linear 1.0 alpha 1.0
+        linear 1.0 alpha 0.2
+        repeat
 
     transform fade_centered:
         xalign 0.5
         yalign 0.5
         alpha 0.0
-        linear 1.5 alpha 1.0  # 1.5 秒淡入
+        linear 1.5 alpha 1.0
 
-define role1 = Character('我', color="#c8c8ff", image="role1")
-define role2 = Character('“她”', color="#c8c8ff", image="role2")
+define c2role1 = Character('我', color="#c8c8ff", image="c2role1")
+define c2role2 = Character('“她”', color="#c8c8ff", image="c2role2")
 define narrator_nvl = Character(None, kind=nvl)
 define narrator_adv = Character(None, kind=adv)
 define config.voice_filename_format = "audio/{filename}"
 
 label chapter2:
+## 章节初始化处理
 hide screen next_chapter1_button
-nvl clear
-## 隐藏对话框，确保文字居中独立显示
-window hide
 scene black
-## 居中大字显示“2015年，夏”，淡入
-show text "2015年，夏" at fade_centered with fade
-pause 3.0  # 显示 3 秒
-## 淡出文本
-hide text with fade
-pause 2.0  # 黑屏等待 2 秒
-## 清屏后恢复对话框，继续叙述
-window show
+nvl clear
+window hide
 
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(0.1, hard=True)
+
+## 时间指示器相关处理
+show text "2015年，夏" at fade_centered with fade
+pause 3.0
+hide text with fade
+pause 2.0
+
+## 显示窗口
+play audio "audio/element_summer.ogg" loop
 scene bg12 with fade
-play sound "audio/element_summer.ogg" loop
+pause 2.0
+
 $ current_date = "2015年 6月 28日"
 show screen time_display
-role1 "“我们可不可以和好？”"
+window show
+
+c2role1 "“我们可不可以和好？”"
 narrator_nvl "我大概能想象出收到这条信息后她哑然失笑的样子。"
 narrator_nvl "她也许早料到，我会有一天像这样央求她和我复合。"
 nvl clear
-role2 "“你可不可以冷静一下？我觉得……”"
+c2role2 "“你可不可以冷静一下？我觉得……”"
 narrator_nvl "电话的那头，她的声音冷静而沉稳。"
 nvl clear
-role1 "“我很冷静！真的！”"
+c2role1 "“我很冷静！真的！”"
 narrator_nvl "还没等她说完，我的声音动摇着，充满了自己的慌乱。"
 nvl clear
-role2 "“你不，你好好想想可以吗？"
-role2 "上次你跟我说我们分手的时候你也说你很冷静，抱歉呀，我会当真的。”"
+c2role2 "“你不，你好好想想可以吗？"
+c2role2 "上次你跟我说我们分手的时候你也说你很冷静，抱歉呀，我会当真的。”"
 nvl clear
 narrator_nvl "依然是那个冷静而沉稳的声音。"
-role1 "“可是，我真的……”"
+c2role1 "“可是，我真的……”"
 nvl clear
 narrator_nvl "我很想再坚持己见一下，"
 narrator_nvl "但无奈，她说的句句属实，我无法反驳。"
 nvl clear
-role2 "“当初我有跟你说过，异地真的很难，你要考虑清楚，你答应了。"
-role2 "后来最先反悔的也是你，我有没有说错？”"
-role1 "“……嗯”"
+c2role2 "“当初我有跟你说过，异地真的很难，你要考虑清楚，你答应了。"
+c2role2 "后来最先反悔的也是你，我有没有说错？”"
+c2role1 "“……嗯”"
 nvl clear
 narrator_nvl "我发现了，这时候无论我说什么都于事无补。"
-role2 "“那，就这样吧。”"
+c2role2 "“那，就这样吧。”"
 nvl clear
 narrator_nvl "她轻轻地叹息。"
-role1 "“……嗯”"
+c2role1 "“……嗯”"
 nvl clear
 narrator_nvl "除了这个字以外，我竟说不出其他的话，却只觉得自己好没用，"
 narrator_nvl "眼睁睁地看着这通一开始就注定失败的挽回电话砸在了自己手里。"
-role2 "“拜拜……（断线音，嘟……嘟……嘟……）”"
+c2role2 "“拜拜……（断线音，嘟……嘟……嘟……）”"
 play sound "audio/sound_tel_busy.mp3"
 nvl clear
+
+hide screen time_display
+
+## 音效控制
+stop sound
+stop audio
+$ renpy.pause(0.1, hard=True)
+
+## 更换场景：床边的手机
 window hide
 scene bg13 with fade
 pause 2.0
 window show
-hide screen time_display
-stop sound 
+
 narrator_nvl "那之后，我已确信，我们再也没有可能回去了。"
 narrator_nvl "只是，我依然装作无事发生，"
 narrator_nvl "还是会和她在社交网络上有一搭没一搭地，分享着或许是我的，又或许是她的日常。"
@@ -96,29 +114,37 @@ narrator_nvl "这种关系哪怕是到了毕业后，刚进公司加班加到工
 narrator_nvl "直到我上次去上海。"
 stop music fadeout 2.0
 nvl clear
-## 隐藏对话框，确保文字居中独立显示
-window hide
-scene black with fade
-## 居中大字显示“2019年，春”，淡入
 
+## 隐藏对话框，确保文字居中独立显示
+scene black with fade
+nvl clear
+window hide
+stop music fadeout 2.0
+stop sound
+
+## 时间指示器相关处理
 show text "2019年，春" at fade_centered with fade
-pause 3.0  # 显示 3 秒
-## 淡出文本
+pause 3.0
 hide text with fade
-pause 2.0  # 黑屏等待 2 秒
-## 清屏后恢复对话框，继续叙述
-window show
+pause 2.0
+
+## 显示窗口
+play music "audio/bgm_xiangni.mp3"
 scene bg20 with fade
+pause 2.0
 
 $ current_date = "2019年 5月 14日"
 show screen time_display
-play music "audio/bgm_xiangni.mp3"
+window show
+
 narrator_nvl "上次项目交付之后，有了一点窗口期。"
 narrator_nvl "我于是跟公司请了年假把没来得及消化的带薪假花出去，顺便去上海看看老朋友。"
 narrator_nvl "也许，还能跟她再见上一面。"
 nvl clear
-role1 "“我会在上海呆到后天，真的不能再见上一面吗？”"
-role2 "“我之前有没有跟你说过？其实我跟我先生领证了……”"
+play sound "audio/sound_typing.mp3"
+c2role1 "“我会在上海呆到后天，真的不能再见上一面吗？”"
+play sound "audio/sound_popup.wav"
+c2role2 "“我之前有没有跟你说过？其实我跟我先生领证了……”"
 nvl clear
 narrator_nvl "我木木地看着手机屏幕上那行文本，"
 narrator_nvl "这些字，每个字我都认识，"
@@ -146,12 +172,17 @@ narrator_nvl "我们已经结束了所以我，作为一个懂分寸的成年人
 narrator_nvl "我应该。"
 nvl clear
 narrator_nvl "于是我拂去手机屏幕上的泪水，"
-role1 "“祝你幸福，我们不要再联系了吧。”"
+play sound "audio/sound_typing.mp3"
+c2role1 "“祝你幸福，我们不要再联系了吧。”"
 nvl clear
+
+stop sound
+## 更换场景：廉价酒店
 window hide
 scene bg15 with fade
 pause 2.0
 window show
+
 narrator_nvl "发完这条信息后，后续还发过几条信息过来，但我没有再看，"
 narrator_nvl "我怕我再抑制不住自己的感情冲动。"
 narrator_nvl "我把手机插上充电座，躺在酒店的大床上，把电视的音量开大了一点，"
@@ -174,31 +205,46 @@ narrator_nvl "击穿酒店那并不存在的隔音墙，"
 narrator_nvl "盖过电视那点可怜的声音，"
 narrator_nvl "甚至让我不再在意坏掉的空调。"
 nvl clear
-scene black  with fade
+
+## 更换场景：手机
+window hide
+scene bg20  with fade
+pause 2.0
+window show
+
 narrator_nvl "这里不能呆了。"
 narrator_nvl "随着脑海内的这个声音逐渐变大，"
 narrator_nvl "于是拿过手机，订了下午的高铁票，"
 narrator_nvl "不顾朋友的挽留，我干脆地收拾了行李，匆匆结束了上海的旅程，"
 narrator_nvl "回到了我们相遇的那个小镇。"
 
+## 更换场景：自己的房间
 window hide
 scene bg16 with fade
 pause 2.0
 window show
+
+## 时间指示器相关处理
 $ current_date = "2019年 5月 15日"
 show screen time_display
+
 narrator_nvl "我已记不得我是怎样回到自己的家，自己的床上了，"
 narrator_nvl "想必那样子一定难看至极。"
 nvl clear
 narrator_nvl "接下来的几天，我尝试着出门，"
 narrator_nvl "但每每以我的情绪崩溃告终。"
 nvl clear
+
+## 更换场景：林业局的林荫道
 window hide
 scene bg17 with fade
 pause 2.0
 window show
+
+## 时间指示器相关处理
 $ current_date = "2019年 5月 16日"
 show screen time_display
+
 narrator_nvl "当我走在林业局夏天会开满喇叭花的林荫道上时，会想起那个夏天，"
 narrator_nvl "穿着小司水手服的她撒娇说走累了"
 narrator_nvl "然后“嘿呀~”一下子跳到我背上，"
@@ -206,16 +252,27 @@ narrator_nvl "我一个趔趄差点没站稳，还好勉强接住她，"
 narrator_nvl "一直把她背回小区。"
 narrator_nvl "耳边仿佛还听见她说的“不许嫌我重哦！”"
 nvl clear
-scene black  with fade
+
+## 更换场景：黑屏
+window hide
+scene black with fade
+pause 2.0
+window show
+
 narrator_nvl "这如果只是偶然的情景闪回的话还好，"
 narrator_nvl "可我的病症却比这要严重得多。"
 nvl clear
+
+## 更换场景：母校
 window hide
 scene bg18 with fade
 pause 2.0
 window show
+
+## 时间指示器相关处理
 $ current_date = "2019年 5月 17日"
 show screen time_display
+
 narrator_nvl "当我走到曾经的我和她的母校，我会想起，"
 narrator_nvl "我追她还在晚自习偷偷借好兄弟的手机聊QQ，"
 narrator_nvl "有一次忍不住直接在考评员来清点人数之前溜下楼从单车棚取出单车，"
@@ -229,12 +286,17 @@ narrator_nvl "我路过她年级的楼层偶遇她的时候，"
 narrator_nvl "她故意“哼”的一下走过去，"
 narrator_nvl "我也毫不逊色地“哼”了回去的样子。"
 nvl clear
+
+## 更换场景：小区前面的道路
 window hide
 scene bg21 with fade
 pause 2.0
 window show
+
+## 时间指示器相关处理
 $ current_date = "2019年 5月 18日"
 show screen time_display
+
 narrator_nvl "走到她曾经住的小区前面的道路时，"
 narrator_nvl "会想起每天早上和中午上学的时候，我在她家楼下等她，"
 narrator_nvl "而她姗姗来迟之后，小心翼翼却又略带一点小心思地问我"
@@ -246,12 +308,17 @@ narrator_nvl "“我没有强奸你（坏笑）”"
 narrator_nvl "“可恶！给我等着！”"
 narrator_nvl "然后一边打闹一边去学校。"
 nvl clear
+
+## 更换场景：步行街
 window hide
 scene bg19 with fade
 pause 2.0
 window show
+
+## 时间指示器相关处理
 $ current_date = "2019年 5月 19日"
 show screen time_display
+
 narrator_nvl "走到繁华的步行街，经过街口的美食广场，"
 narrator_nvl "会想起下午放学后我们有时会来到这里，"
 narrator_nvl "趁晚自习开始之前的间隙吃一些炸串之类的垃圾食品。"
@@ -272,20 +339,28 @@ narrator_nvl "脑海里那些曾经的甜蜜就变得越发地大声，"
 narrator_nvl "直到震耳欲聋的程度。"
 narrator_nvl "我跑了起来，跑回家里。"
 nvl clear
+
+## 更换场景：自己的房间
 window hide
 scene bg16 with fade
 pause 2.0
 window show
+
 narrator_nvl "那天晚上的记忆只剩我往嘴里灌酒和我打开航司官网改签机票，"
 narrator_nvl "这个要用伤心溺死我的地方我是一刻也呆不下去了。"
 narrator_nvl "第二天顶着个红眼圈跟家人说了一声便打车下广州了。"
 nvl clear
+
+## 更换场景：广州的酒店
 window hide
 scene bg23 with fade
 pause 2.0
 window show
+
+## 时间指示器相关处理
 $ current_date = "2019年 5月 22日"
 show screen time_display
+
 narrator_nvl "在广州的那两天也是，"
 narrator_nvl "白天在酒店爆睡，"
 narrator_nvl "晚上约人出来喝酒，"
@@ -293,10 +368,13 @@ narrator_nvl "喝到实在喝不下才回酒店。"
 narrator_nvl "因为我发现，"
 narrator_nvl "哪怕是广州，也时刻提醒着我刚刚失去了什么重要的东西。"
 nvl clear
+
+## 更换场景：广州塔远景
 window hide
 scene bg24 with fade
 pause 2.0
 window show
+
 narrator_nvl "就像我回到家乡时候，"
 narrator_nvl "同样的场景闪回在广州也没有消退。"
 narrator_nvl "去游戏中心的时候，会想起之前在同一个地方约会的时候，一起玩跳舞机的情景。"
@@ -307,26 +385,35 @@ narrator_nvl "睁眼是她，"
 narrator_nvl "闭眼是她，"
 narrator_nvl "只有半梦半醒朦胧中，才有那么一点廉价止痛药一般的效果。"
 nvl clear
+
+## 更换场景：飞机腾空而起
 window hide
 scene bg25 with fade
 pause 2.0
 window show
+
 narrator_nvl "直到飞机腾空而起，"
 narrator_nvl "冲破云层，"
 narrator_nvl "下面广州的身影渐渐远去，祖国的海岸线渐渐离我远去，"
 narrator_nvl "那些我想珍视却被我所失的那些终究是远去了。"
 nvl clear
+
+## 更换场景：飞机落地羽田机场
 window hide
 scene bg26 with fade
 pause 2.0
 window show
+
 narrator_nvl "飞机落地羽田机场后走出飞机舱门走进廊桥的那一刻，"
 narrator_nvl "打开蜂窝数据收到一堆工作上的邮件和数据之后，"
 narrator_nvl "我大概是强行杀死了体内的某种东西，"
 narrator_nvl "或者说至少让它睡去了。"
 narrator_nvl "于是一头扎进工作，不再犹豫。"
+stop music fadeout 2.0
+
+# 章节切换处理
 show screen next_chapter2_button
-pause  # 让玩家可以点击按钮或按任意键继续
+pause
 hide screen time_display
 jump chapter3
 return
