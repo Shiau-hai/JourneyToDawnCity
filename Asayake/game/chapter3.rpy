@@ -14,7 +14,7 @@ stop sound
 hide screen next_chapter2_button
 
 ## 时间指示器相关处理
-show text "22021年，如今" at fade_centered with fade
+show text "2021年，如今" at fade_centered with fade
 pause 3.0
 hide text with fade
 pause 2.0
@@ -53,7 +53,7 @@ nvl clear
 ## 更换场景：新小岩月台
 window hide
 scene bg37 with fade
-play audio "audio/element_kaisatu.mp3" loop
+play sound "audio/element_kaisatu.mp3" loop
 pause 2.0
 window show
 
@@ -71,7 +71,7 @@ $ renpy.pause(1.0, hard=True)
 ## 更换场景：新小岩月台
 window hide
 scene bg39 with fade
-play audio "audio/element_ekimae.mp3" loop
+play sound "audio/element_ekimae.mp3" loop
 pause 2.0
 window show
 
@@ -90,7 +90,7 @@ nvl clear
 ## 更换场景：新小岩月台
 window hide
 scene bg27 with fade
-play audio "audio/element_autumn.mp3" loop
+play sound "audio/element_autumn.mp3" loop
 pause 2.0
 window show
 
@@ -107,7 +107,7 @@ $ renpy.pause(1.0, hard=True)
 ## 更换场景：电话亭
 window hide
 scene bg06 with fade
-play audio "audio/element_roadside.ogg" loop
+play sound "audio/element_roadside.ogg" loop
 pause 2.0
 window show
 
@@ -171,7 +171,7 @@ $ renpy.pause(1.0, hard=True)
 ## 更换场景：新小岩月台
 window hide
 scene bg28 with fade
-play audio "audio/element_autumn.mp3" loop
+play sound "audio/element_autumn.mp3" loop
 pause 2.0
 window show
 
@@ -199,7 +199,7 @@ $ renpy.pause(1.0, hard=True)
 ## 更换场景：新小岩改札
 window hide
 scene bg37 with fade
-play audio "audio/element_kaisatu.mp3" loop
+play sound "audio/element_kaisatu.mp3" loop
 pause 2.0
 window show
 
@@ -241,7 +241,7 @@ $ renpy.pause(1.0, hard=True)
 ## 更换场景：新小岩月台
 window hide
 scene bg07 with fade
-play audio "audio/element_konbini.mp3" loop
+play sound "audio/element_konbini.mp3" loop
 pause 2.0
 window show
 
@@ -256,6 +256,7 @@ narrator_nvl "我苦笑，"
 narrator_nvl "我不知道眼前这个醉美人到底酒量几何，"
 narrator_nvl "但我肯定她这么说的时候"
 narrator_nvl "她今晚肯定不会轻易放过我的。"
+nvl clear
 c3role3 "“那，我跟你分吧，"
 c3role3 "你喝多少我陪你喝多少，"
 c3role3 "要是喝完的话我家对面就是卖酒的自贩机，"
@@ -273,7 +274,7 @@ $ renpy.pause(1.0, hard=True)
 ## 更换场景：新小岩月台
 window hide
 scene bg36 with fade
-play audio "audio/element_walk_jutaku_night.mp3" loop
+play sound "audio/element_walk_jutaku_night.mp3" loop
 pause 2.0
 window show
 
@@ -281,7 +282,7 @@ narrator_nvl "我有些难为情，"
 narrator_nvl "虽然我很明白，我这是在占她便宜，"
 narrator_nvl "占一个喝醉了的美女的便宜，"
 narrator_nvl "但意外地感觉不坏，"
-
+nvl clear
 ## 更换场景：新小岩月台
 window hide
 scene bg40 with fade

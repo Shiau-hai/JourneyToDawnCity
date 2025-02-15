@@ -72,7 +72,7 @@ nvl clear
 ## 更换场景：酒吧
 window hide
 scene bg03 with fade
-play audio "audio/element_party.mp3" loop
+play sound "audio/element_party.mp3" loop
 pause 2.0
 window show
 
@@ -123,7 +123,7 @@ $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：散场
 window hide
-play audio "audio/element_townnight.mp3" loop
+play sound "audio/element_townnight.mp3" loop
 scene bg04 with fade
 pause 2.0
 window show
@@ -163,7 +163,7 @@ $ renpy.pause(1.0, hard=True)
 ## 更换场景：电车
 window hide
 scene bg05 with fade
-play audio "audio/element_train.ogg" loop
+play sound "audio/element_train.ogg" loop
 pause 2.0
 window show
 

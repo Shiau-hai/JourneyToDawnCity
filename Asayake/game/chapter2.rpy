@@ -48,7 +48,7 @@ hide text with fade
 pause 2.0
 
 ## 显示窗口
-play audio "audio/element_summer.ogg" loop
+play sound "audio/element_summer.ogg" loop
 scene bg12 with fade
 pause 2.0
 
