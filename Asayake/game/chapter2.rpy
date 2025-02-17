@@ -38,7 +38,6 @@ window hide
 
 ## 音效控制
 stop sound
-stop audio
 $ renpy.pause(0.1, hard=True)
 
 ## 时间指示器相关处理
@@ -95,7 +94,7 @@ hide screen time_display
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(0.1, hard=True)
 
 ## 更换场景：床边的手机

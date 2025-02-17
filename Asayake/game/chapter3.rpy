@@ -1,3 +1,27 @@
+screen next_chapter3_button():
+    vbox:
+        xalign 0.5
+        yalign 0.9
+        ## 闪烁文本内容
+        textbutton "去床上。":
+            text_size 60
+            text_color "#FFFFFF"
+            action Return()
+            at breathing_animation
+
+init:
+    transform breathing_animation:
+        alpha 0.2
+        linear 1.0 alpha 1.0
+        linear 1.0 alpha 0.2
+        repeat
+
+    transform fade_centered:
+        xalign 0.5
+        yalign 0.5
+        alpha 0.0
+        linear 1.5 alpha 1.0
+
 define c3role1 = Character('广播', color="#c8c8ff", image="c3role1")
 define c3role2 = Character('“xx桑”', color="#c8c8ff", image="c3role2")
 define c3role3 = Character('我', color="#c8c8ff", image="c3role3")
@@ -38,7 +62,7 @@ nvl clear
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：新小岩月台
@@ -65,7 +89,6 @@ nvl clear
 
 ## 音效控制
 stop sound
-stop audio
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：新小岩月台
@@ -101,7 +124,7 @@ nvl clear
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：电话亭
@@ -165,7 +188,7 @@ nvl clear
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：新小岩月台
@@ -193,7 +216,7 @@ nvl clear
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：新小岩改札
@@ -235,7 +258,7 @@ nvl clear
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：新小岩月台
@@ -268,7 +291,7 @@ nvl clear
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：新小岩月台
@@ -285,13 +308,13 @@ narrator_nvl "但意外地感觉不坏，"
 nvl clear
 ## 更换场景：新小岩月台
 window hide
-scene bg40 with fade
+scene bg45 with fade
 pause 2.0
 window show
 
 ## 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 nvl clear
 narrator_nvl "于是就这样保持这个姿势一直到家。"
@@ -309,6 +332,14 @@ narrator_nvl "她看起来还是很开心。"
 narrator_nvl "我把购物袋放到暖桌上，把墙角灯打开，"
 narrator_nvl "恰到好处的暖光包围了暖桌的周围。"
 narrator_nvl "把一切安排妥当之后，招呼她在暖桌边坐下。"
+nvl clear
+
+## 更换场景：新小岩月台
+window hide
+scene bg40 with fade
+pause 2.0
+window show
+
 c3role3 "“不好意思，"
 c3role3 "男人的破狗窝是这个样子，"
 c3role3 "你随意就好不用太拘……嗯呣……！！？”"
@@ -328,10 +359,6 @@ narrator_nvl "我感受到我们的呼吸渐渐加快。"
 play sound "audio/sound_kiss.mp3"
 narrator_nvl "然后好像是同时，我们再次温柔地接吻，"
 nvl clear
-narrator_nvl "片刻后。稍微分开。"
-narrator_nvl "暖色的灯光下的她这时却有些害羞了起来，"
-narrator_nvl "我忍不住笑场了，她看到我笑了也忍不住笑了。"
-narrator_nvl "然后一拳捶到我胸口上，那可是实打实的一拳啊。"
 
 ## 更换场景：和室
 window hide
@@ -339,8 +366,20 @@ scene bg38 with fade
 pause 2.0
 window show
 
+narrator_nvl "片刻后。稍微分开。"
+narrator_nvl "暖色的灯光下的她这时却有些害羞了起来，"
+narrator_nvl "我忍不住笑场了，她看到我笑了也忍不住笑了。"
+narrator_nvl "然后一拳捶到我胸口上，那可是实打实的一拳啊。"
+
 nvl clear
 c3role2 "“呐，去床上吧。”"
 c3role3 "“嗯”"
 
+stop music fadeout 2.0
+
+# 章节切换处理
+show screen next_chapter3_button
+pause
+hide screen time_display
+jump chapter4
 return

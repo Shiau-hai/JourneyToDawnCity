@@ -28,7 +28,11 @@ define config.version = "1.0"
 define gui.about = _p("""
 鸣谢
 
-1. 声音素材
+1. 程序
+- 凉宫春日应援团提供的Excel2RpyScript(https://github.com/HaruhiFanClub/Excel2RpyScript)
+- Ren'py社区的所有贡献者
+
+2. 声音素材
 音频来源: OtoLogic (https://otologic.jp/)
 素材遵循 CC BY 4.0 许可证。
 
@@ -42,6 +46,7 @@ define gui.about = _p("""
 音频来源: 効の音(https://kounone.com)
 
 音频来源: ポケットサウンド(https://pocket-se.info/)
+
 2. 其他
 谢谢咕政委孜孜不倦的催更.没有你这个游戏问世不了./salute
 

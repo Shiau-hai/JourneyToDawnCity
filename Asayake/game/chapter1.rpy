@@ -42,7 +42,6 @@ window hide
 ## 音效控制
 stop music fadeout 2.0
 stop sound
-stop audio
 $ renpy.pause(0.1, hard=True)
 
 
@@ -118,7 +117,7 @@ nvl clear
 
 # 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：散场
@@ -157,7 +156,7 @@ nvl clear
 
 # 音效控制
 stop sound
-stop audio
+
 $ renpy.pause(1.0, hard=True)
 
 ## 更换场景：电车
@@ -248,7 +247,6 @@ narrator_nvl "什么？"
 # 音效控制
 stop music fadeout 2.0
 stop sound
-stop audio
 $ renpy.pause(1.0, hard=True)
 
 play music "audio/bgm_bocchi.mp3"
