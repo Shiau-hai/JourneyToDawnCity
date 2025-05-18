@@ -302,8 +302,8 @@ narrator_nvl "而她姗姗来迟之后，小心翼翼却又略带一点小心思
 narrator_nvl "“久等啦\~没有生气吧？”"
 narrator_nvl "“没有。”"
 narrator_nvl "“你生气了\~”"
-narrator_nvl "“没有，你不要强奸我思想。”"
-narrator_nvl "“我没有强奸你（坏笑）”"
+narrator_nvl "“没有，你不要曲解我意思。”"
+narrator_nvl "“我没有掰弯你（坏笑）”"
 narrator_nvl "“可恶！给我等着！”"
 narrator_nvl "然后一边打闹一边去学校。"
 nvl clear

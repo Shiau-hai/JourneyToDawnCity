@@ -131,10 +131,9 @@ play sound "audio/sound_bubu.mp3"
 narrator_nvl "而这边课长又夺命连环call问我几点才能到公司——"
 narrator_nvl "明明我5分钟前刚刚答复过他同样的问题。"
 nvl clear
-c4role1 "【哔——（国骂）】……5分钟？我是能瞬移到你老婆床上，还是咋的？"
-c4role1 "我是能瞬移到你老婆床上，"
-c4role1 "还是咋的？"
-c4role1 "【哔——（国骂）】"
+c4role1 "【哔——（国骂）】……5分钟？"
+c4role1 "我是开火箭还是怎的？"
+narrator_nvl "尽管此时内心有许多对课长这种无理的施压有着诸多的咒骂，我选择暂时搁置，先想办法尽快赶到公司。"
 nvl clear
 
 ## 更换场景：
